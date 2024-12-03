@@ -134,7 +134,7 @@ exports.sendResetLink = asyncHandler(async (req, res) => {
     }
 
     // Generate reset link
-    const resetLink = `http://localhost:5173/change-pass/${user._id}`;
+    const resetLink = `https://lawn-b3su.onrender.com/change-pass/${user._id}`;
 
     // Send reset email
     await sendEmail({

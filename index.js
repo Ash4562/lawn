@@ -14,7 +14,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5173", // Adjust according to your frontend URL
+    origin: "https://lawn-b3su.onrender.com", // Adjust according to your frontend URL
     credentials: true
 }));
 app.use(cookieParser())
@@ -37,7 +37,7 @@ app.use((err, req, res, next) => {
 
 // Server start
 mongoose.connection.once("open", () => {
-    console.log("Mongoose Connected");
+    console.log("Mongoose Connecteds");
     app.listen(process.env.PORT, () => {
         console.log("Server running");
     });
