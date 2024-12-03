@@ -12,7 +12,7 @@ mongoose.connect(process.env.MONGO_URL);
 const app = express();
 
 // Middlewares
-app.use(express.json());
+app.use(express.static(path.join(__dirname, "dist")));
 app.use(cors({
     origin: "https://lawn-b3su.onrender.com", // Adjust according to your frontend URL
     credentials: true
@@ -26,7 +26,7 @@ app.use("/api/booking", require("./routes/booking.routes")); // Route for genera
 
 // Catch-all for unmatched routes
 app.use("*", (req, res) => {
-    res.status(404).json({ message: "Resource Not Found" });
+    res.sendFile(path.join(__dirname, "dist", "index.html"))
 });
 
 // Global error handler
