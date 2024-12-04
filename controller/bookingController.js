@@ -98,6 +98,8 @@ exports.createBooking = asyncHandler(async (req, res) => {
 exports.getBookings = asyncHandler(async (req, res) => {
     try {
         const bookings = await Booking.find();
+        console.log(bookings);
+
         res.status(200).json(bookings);
     } catch (error) {
         res.status(500).json({ message: "Failed to fetch bookings.", error: error.message });

@@ -86,6 +86,7 @@ exports.createBanquetBooking = asyncHandler(async (req, res) => {
 exports.getBanquetBookings = asyncHandler(async (req, res) => {
     try {
         const banquetBookings = await BanquetBooking.find();
+
         res.status(200).json(banquetBookings);
     } catch (error) {
         res.status(500).json({ message: "Failed to fetch banquet bookings.", error: error.message });

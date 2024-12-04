@@ -57,9 +57,10 @@ exports.regiter = asyncHandler(async (req, res) => {
     })
 })
 
-
 exports.login = asyncHandler(async (req, res) => {
     const { email, password } = req.body
+    console.log(email);
+
     if (validator.isEmpty(email) || validator.isEmpty(password)) {
         return res.status(400).json({ message: "all field required" })
     } if (!validator.isEmail(email)) {
